@@ -1,0 +1,16 @@
+{
+  "name": "Docker-Run-Class",
+  "description": "Como começar a desenvolver usando Docker",
+  "author": "profhelder.pereira@uolinc.com",
+  "templates" : {
+      "special" : "simple.tpl"
+  },
+  "pause_msg": "Paused !!!",
+  "sections": [
+    {"section":"Conceitos"},
+    {"section":"Running"},
+    {"section":"Dockerfiles"},
+    {"section":"Debbuging"},
+    {"section":"End"}
+  ]
+}
