@@ -8,6 +8,6 @@ RUN apk add --no-cache ruby ruby-dev zlib-dev build-base git cmake  \
         && rm -rf `gem environment gemdir`/gems/commonmarker-*/test \
         && rm -rf `gem environment gemdir`/cache
 
-COPY ../* /var/cache/showoff/*
+COPY docker-run-class /var/cache/showoff/
 
 CMD ["showoff", "serve", "--port=8080"]
