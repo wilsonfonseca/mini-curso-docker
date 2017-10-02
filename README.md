@@ -21,7 +21,7 @@ docker run helcorin/drc -p 8080:8080   # Acesso via localhost:8080
 
 ## Referências e bases para Sistemas Linux:
 
-Outra opço interessante e muito mais completa é consultar o material do [Gomex](https://github.com/gomex) publicado em seu github no repositório [docker-para-desenvolvedores](https://github.com/gomex/docker-para-desenvolvedores);
+ - Uma opção interessante é consultar o material do [Gomex](https://github.com/gomex) publicado em seu github no repositório [docker-para-desenvolvedores](https://github.com/gomex/docker-para-desenvolvedores);
 
 
 ----
