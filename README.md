@@ -1,5 +1,5 @@
 # Docker Run Class
-Docker Run Class - Mini curso de Docker criado com base na plataforma showoff da Puppetlabs
+Docker Run Class - Mini curso de Docker 
 
 ---
 
@@ -24,6 +24,7 @@ Você também pode acessar a [versão em PDF Neste Repositório](https://github.
 
  - Uma opção interessante é consultar o material do [Gomex](https://github.com/gomex) publicado em seu github no repositório [docker-para-desenvolvedores](https://github.com/gomex/docker-para-desenvolvedores);
 
+- Este projeto foi criado com base na plataforma showoff da [Puppetlabs](https://github.com/puppetlabs/showoff);
 
 ----
 
