@@ -1,5 +1,5 @@
 # Docker Run Class
-Docker Run Class - Mini curso de Docker focado em conceitos para quem está começando a conehcer o assunto;
+Mini curso de Docker focado em conceitos para quem está começando a conehcer o assunto;
 
 ---
 
