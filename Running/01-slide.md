@@ -72,3 +72,30 @@ Finalizando é possível executar containers em Background utilizando a opção 
 .callount.info `A opção "-p 8080:80" refere-se ao bind da porta 8080 do host local na porta 80 do container`
 
 .callout.info `Como o container está sendo executado em uma camada de rede criada dentro do  host hospedeiro é necessário export da porta para acesso a aplicação`
+
+!SLIDE commandline incremental transition=scrollUp
+# Listando Containers
+
+Abra um segundo terminal, visualize a lista de containers rodando:
+
+    $ docker ps
+    CONTAINER ID     IMAGE       COMMAND                   ...
+    7b058f5b8a2c     nginx...    "nginx -g 'daemon ..."    ...
+
+A relação de parâmetros para esse comando pode ser consultada abaixo:
+
+![docker](images/docker-ls-table.png)
+
+
+!SLIDE commandline incremental transition=scrollUp
+# Exibição de Logs
+
+É possível obter logs de containers em execução com o comando docker logs 
+
+***sintaxe:*** docker logs ${OPTIONS} ${CONTAINER_NAME}
+
+    $ docker logs 7b058f5b8a2c
+    
+.callout.info `Uma boa prática ligada ao uso de containers indica que aplicações não devem gerenciar ou rotear arquivos de log, esse logs devem ser depositados sem qualquer esquema de buffer na saída padrão (STDOUT);`
+
+.callout.info `Fica por conta de uma infraestrutura externa à aplicação o armazenamento e gerenciamento desses dados;`

@@ -1,7 +1,7 @@
 !SLIDE center transition=scrollUp
 
 # Debbuging
-![kubernetes](images/debbuging-logo.png)
+![docker](images/debbuging-logo.png)
 
 !SLIDE commandline incremental transition=scrollUp
 # DOCKER PS
