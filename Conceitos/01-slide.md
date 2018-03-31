@@ -59,7 +59,7 @@ Quando iniciamos um container ele sempre é baseado em uma imagem, o container c
 
 ![docker](images/contaierxlayer.png)
 
-.callout.info `Esse modelo facilita o processo de pull e armazenamento de imagens, uma vez que as layers são compartilhadas mantendo as imagens em tamanhos pequenos ( Geralmente menos de 200mb)`
+.callout.info `Esse modelo facilita o processo de pull e armazenamento de imagens, uma vez que as layers são compartilhadas mantendo as imagens em tamanhos pequenos (Geralmente menos de 200mb)`
 
 !SLIDE transition=scrollUp
 # Layers

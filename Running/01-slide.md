@@ -84,7 +84,7 @@ Abra um segundo terminal, visualize a lista de containers rodando:
 
 A relação de parâmetros para esse comando pode ser consultada abaixo:
 
-![docker](images/docker-ls-table.png)
+![docker-ls-table](images/docker-ls-table.png)
 
 
 !SLIDE commandline incremental transition=scrollUp

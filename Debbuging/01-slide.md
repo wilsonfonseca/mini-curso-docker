@@ -56,11 +56,3 @@ Em alguns cenários pode ser necessário atuar dentro da Pod, esse processo pode
 	$ docker exec -it hello_spring:version1.0 ls
 
 .callout.info `Substitua o /bin/sh pelo comando a ser executado dentro do container, caso a Pod possua apenas um container a  -c ${CONTAINERNAME} pode ser omitida`
-
-
-!SLIDE transition=scrollUp
-
-***sintaxe:*
-# Quando as coisas dão errado...
-
-- O processo descrito até aqui foi baseado na ideia da menor caminho para testar ideia, sendo assim segue uma relação do que pode dar errado em relação ao que você executou no kubernetes [Neste Link](https://kukulinski.com/10-most-common-reasons-kubernetes-deployments-fail-part-1/);
