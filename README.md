@@ -18,7 +18,7 @@ docker run -p 8080:8080 helcorin/mini-curso-docker
 
 Basta rodar o projeto com export da porta 8080 para a porta local a partir da qual pretende acessar o conteúdo;
 
-Você também pode acessar a [versão em PDF Neste Repositório](https://github.com/fiapsecdevops/mini-curso-docker/raw/master/_files/Docker-Run-Class.pdf)
+Você também pode acessar a [versão em PDF neste Repositório](https://github.com/fiapsecdevops/mini-curso-docker/raw/master/_files/share/Docker-Run-Class.pdf)
 
 ---
 
