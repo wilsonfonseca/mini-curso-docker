@@ -13,7 +13,7 @@ Para instalação do Docker de acordo com sua distro verifique a documentação 
 Já a imagem com o curso pronto para acesso pode ser obitdia via Docker:
 
 ```sh
-docker run -p 8080:8080 helcorin/mini-curso-docker
+docker run -p 80:8080 helcorin/mini-curso-docker:latest
 ```
 
 Basta rodar o projeto com export da porta 8080 para a porta local a partir da qual pretende acessar o conteúdo;
