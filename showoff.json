@@ -1,7 +1,7 @@
 {
-  "name": "Docker-Run-Class",
+  "name": "mini-curso-docker",
   "description": "Como começar a desenvolver usando Docker",
-  "author": "profhelder.pereira@uolinc.com",
+  "author": "profhelder.pereira@fiap.com.br",
   "templates" : {
       "special" : "simple.tpl"
   },
