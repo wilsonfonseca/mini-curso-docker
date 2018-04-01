@@ -21,8 +21,7 @@ Adicione as duas linhas abaixo e salve o conteudo;
 
     @@@shell
     FROM httpd:2.4
-    COPY index.html /usr/local/apache2/htdocs/
-    COPY images /usr/local/apache2/htdocs/
+    COPY public_html /usr/local/apache2/htdocs/
 
 .download css-template.zip
 
@@ -40,12 +39,12 @@ Adicione as duas linhas abaixo e salve o conteudo;
 
 Execute o comando docker build para criar sua imagem:
 
-    $ docker build -t web-css-sample .
+    $ docker build -t web-css-sample:0.0.1 .
     $ docker images
 
 Teste seu novo container rodando o seguinte:
 
-    $ docker run -dit  -p 80:80 --name web-app web-css-sample
+    $ docker run -dit  -p 80:80 web-css-sample:0.0.1
 
 !SLIDE transition=scrollUp
 # Executando o Upload de uma imagem
