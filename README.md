@@ -13,12 +13,12 @@ Para instalação do Docker de acordo com sua distro verifique a documentação 
 Já a imagem com o curso pronto para acesso pode ser obitdia via Docker:
 
 ```sh
-docker run -p 8080:8080 helcorin/drc   # Acesso via localhost:8080
+docker run -p 8080:8080 helcorin/mini-curso-docker
 ```
 
 Basta rodar o projeto com export da porta 8080 para a porta local a partir da qual pretende acessar o conteúdo;
 
-Você também pode acessar a [versão em PDF Neste Repositório](https://github.com/helcorin/docker-run-class/raw/master/_files/Docker-Run-Class.pdf)
+Você também pode acessar a [versão em PDF Neste Repositório](https://github.com/fiapsecdevops/mini-curso-docker/raw/master/_files/Docker-Run-Class.pdf)
 
 ---
 

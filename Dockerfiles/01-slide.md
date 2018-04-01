@@ -12,8 +12,6 @@
 
 - Um Dockerfile é basicamente um arquivo texto contendo uma relação de instruções de linha de comando que farão a composição da imagem de seu container;
 
-- A imagem é baseada em uma imagem base pré existente no [Dockerhub](https://hub.docker.com/_/openjdk/), neste exemplo utilizaremos uma imagem com openjdk rodando [Alpine](https://alpinelinux.org/);
-
 !SLIDE transition=scrollUp
 # Criando imagens
 
@@ -23,9 +21,10 @@ Adicione as duas linhas abaixo e salve o conteudo;
 
     @@@shell
     FROM httpd:2.4
-    COPY ./public-html/ /usr/local/apache2/htdocs/
+    COPY index.html /usr/local/apache2/htdocs/
+    COPY images /usr/local/apache2/htdocs/
 
-.download coffe-template.zip
+.download css-template.zip
 
 !SLIDE transition=scrollUp
 # Criando imagens
@@ -34,7 +33,7 @@ Adicione as duas linhas abaixo e salve o conteudo;
 
 - Neste exemplo utilizaremos uma imagem do apache com base na documentação [https://hub.docker.com/_/httpd/](https://hub.docker.com/_/httpd/);
 
-- O Conteúdo do diretório public-html pode ser definido por você, se achar necessário utilize um [template css do w3schools](https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_cafe);
+- O Conteúdo do diretório public-html pode ser definido por você, se achar necessário utilize um [template css do w3schools](https://www.w3schools.com/w3css/w3css_templates.asp);
 
 !SLIDE commandline incremental transition=scrollUp
 # Criando imagens

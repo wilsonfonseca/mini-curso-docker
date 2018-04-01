@@ -1,7 +1,7 @@
 !SLIDE commandline incremental transition=scrollUp
 # Rodando Comandos
 
-Existem três 
+Existem três contextos para execução de containers:
 
 - Execução de Comandos em Foreground;
 - Execução de Comandos com interação em Foreground;
@@ -99,3 +99,82 @@ A relação de parâmetros para esse comando pode ser consultada abaixo:
 .callout.info `Uma boa prática ligada ao uso de containers indica que aplicações não devem gerenciar ou rotear arquivos de log, esse logs devem ser depositados sem qualquer esquema de buffer na saída padrão (STDOUT);`
 
 .callout.info `Fica por conta de uma infraestrutura externa à aplicação o armazenamento e gerenciamento desses dados;`
+
+!SLIDE commandline incremental transition=scrollUp
+# Stateless vs Stateful
+
+Ao utilizar plataformas baseadas em containers e modelos de [aplicações nativas para cloud](https://pivotal.io/cloud-native) existe uma classificação relativa a maneira como essas aplicações lidam com dados persistentes:
+
+***Stateful:*** Chamamos de statefull as aplicações que  possuem persistência de dados de alguma forma como por exemplo banco de dados, ou soluções que armazenam informações de usuários, como controladores transacionais ou serviços;
+
+***Stateless:*** Chamamos de stateless as aplicações que NÃO possuem persistência de dados como partes de microserviços ou páginas estáticas;
+
+***Dica:***
+
+[Este artigo](https://robinsystems.com/blog/stateless-vs-stateful-containers-1/) da robinsystems uma empresa que fornece paltaformas de cloud para bigadata possui um ótimo infografico sobre statefull x stateless;
+
+!SLIDE commandline incremental transition=scrollUp
+# Stateless vs Stateful
+
+É muito comum que arquiteturas baseadas em containers e _cloud-native_ sejam compostas por ambos os tipos stateless e stateful, por exemplo um serviço de autenticação poderia possuir um container estático com a página de login que utiliza um backend [redis](https://imasters.com.br/artigo/18288/banco-de-dados/usando-o-banco-de-dados-nosql-redis-para-otimizar-sistemas-de-alta-escalabilidade?trace=1519021197&source=single) para persistência de dados da sessão;
+
+.callout.info `No contexto descrito acima o uso de volume possibilitaria que vários containers rodando o redis utilizam uma mesma base, ou seja o ganho está na possibilidade de escalabilidade horizontal!`
+
+!SLIDE commandline incremental transition=scrollUp
+# Usando Volumes
+
+O Docker possui um mecanismo para montagem e gerenciamento de volumes por parte dos containers, ou seja além do processo de binding de arquivos usando COPY e ADD é possível gerenciar conteúdo estático usando volumes, o que trás algumas vantagens em determinadas situações:
+
+- Volumes são mais fáceis de fazer backup ou migrar;
+- Podem ser manipulados usando o cliente do proprio Docker;
+- Podem facilamente ser compartilhados entre vários containers;
+- O uso de drivers permite a integração com paltaformas de cloud como AWS ou Google;
+- Volumes podém ser pré-configurados e populados, (o que provavelmente é sua maior vantagem);
+
+!SLIDE commandline incremental transition=scrollUp
+# Usando Volumes
+
+Para demonstrar a montagem de um volume utilizaremos um exemplo simples montando o conteúdo de um container php: 
+
+Crie um diretório chamado ***php-vol***
+
+    $ mkdir php-vol ; cd php-vol/
+
+Popule este diretório com o arquivo ***index.php***:
+
+    $ cat<<EOF > index.php
+    <?php
+    // Mostra todas as informações, padrão (INFO_ALL)
+    phpinfo();
+    ?>
+    EOF
+
+.callout.info `O phpinfo será utilizado para testar o uso do php mostrando seu atual estado e claro, será um ponto de montagem remota via volume para o documentroot do apache que por padrão lê arquivos index.*`
+
+!SLIDE commandline incremental transition=scrollUp
+# Usando Volumes
+
+Verifique se o arquivo foi cirado conforme esperado:
+
+    $ cat index.php
+    <?php
+    // Mostra todas as informações, padrão (INFO_ALL)
+    phpinfo();
+    ?>
+
+Para testar volumes utilizaremos a imagem [php:7.0-apache](https://hub.docker.com/_/php/)
+
+    $ docker run -d -p 80:80 -v \
+    "$PWD":/var/www/html php:7.0-apache
+
+.callout.info `Neste exemplo estamos montando o conteúdo do diretório corrente(nosso php-vol com o arquivo index.php) no diretório "/var/www/html"`
+
+!SLIDE commandline incremental transition=scrollUp
+# Usando Volumes
+
+.callout.warning `IMPORTANTE: A instrução "-v" ou --"mount" do comando anterior especifica o diretório local a ser montado dentro do container, essa especificação deve ser um caminho absoluto, ou seja o caminho completo no filesystem do sistema operacional, logo caso não utiliza-se a variável $PWD a pesecificação seria algo conforme abaixo`
+
+    $ docker run -d -p 80:80 -v \
+    "/home/<nome-usuario>/php-vol":/var/www/html php:7.0-apache
+
+.callout.question `Porque funciona com $PWD?: A varíavel $PWD aponta o caminho completo para o diretório atual no sistema linux, no momento da execução este era o diretório php-vol, esse tipo de recurso é muito útil na hora de automatizar seus processos de build;`
